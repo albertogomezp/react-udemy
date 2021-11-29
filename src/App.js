@@ -2,34 +2,20 @@ import { useState } from "react";
 
 
 function App() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState("Alberto");
+  const [age] = useState("21");
+  const [, setSomething] = useState("Hey!");
 
-  const handleEmailChange = ({ target: {value} }) => setEmail(value);
-  const handlePasswordChange = ({ target: {value} }) => setPassword(value);
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    console.log("enviaoh")
-    alert(`el menda es ${email} y su pazwoh ${password}`)
+  const handleHeyclick = () => {
+    setName("Manolo")
   }
   return (
     <div className="App">
-      <form onSubmit={handleFormSubmit}>
-        <h2>Inisia sesionsita</h2>
-        <label>
-          zurcorreito?
-          <input type="email" value={email} onChange={handleEmailChange} />
-        </label>
-        <br/>
-        <label>
-          yla contraseña?
-          <input type="password" value={password} onChange={handlePasswordChange} />
-        </label>
-        <button type="submit">
-          damelotó
+        <h2>Hello hello, {name}</h2>
+        <p>ur age is {age} lol</p>
+        <button onClick={handleHeyclick}>
+          Hey!
         </button>
-      </form>
     </div>
   );
 }
