@@ -1,23 +1,42 @@
-import { useState } from "react";
+import { Component } from "react";
 
-
-function App() {
-  const [name, setName] = useState("Alberto");
-  const [age] = useState("21");
-  const [, setSomething] = useState("Hey!");
-
-  const handleHeyclick = () => {
-    setName("Manolo")
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      name: "Brr, name does brr"
+    }
+    console.log('konstruktor')
+    console.log('zometaim i do brr, but not much')
   }
-  return (
-    <div className="App">
-        <h2>Hello hello, {name}</h2>
-        <p>ur age is {age} lol</p>
-        <button onClick={handleHeyclick}>
-          Hey!
-        </button>
-    </div>
-  );
-}
 
+  componentDidMount() {
+    console.log('did maunt??')
+    console.log('yea, it maunt')
+  }
+
+  componentDidUpdate(prevProps,prevState, snapshot) {
+    console.log('up up')
+  }
+
+  shouldComponentUpdate() {
+      var name = this.state.name;
+      console.log(`haha name goes: ${name}`)
+      return name.includes('brr');
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState){
+    console.log(prevProps,prevState)
+    return 0
+  }
+
+  render() {
+      return (
+      <div>
+        da inpu --> 
+        <input value={this.state.name} onChange={({target: {value}}) => this.setState({name: value})} />  
+      </div>
+      );
+  }
+}
 export default App;
