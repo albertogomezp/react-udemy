@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
 
 const App = () => {
-  const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
+  const [user, setUser] = useState("username");
+  const [password, setPassword] = useState("password");
+  const [isLogged, setIsLogged] = useState(false);
+
+  const handleLoginClick = () => {
+    setIsLogged(true);
+  }
+
+  const handleClearButtonClick = () => {
+    setIsLogged(false);
+  }
   /** componentDidUpdate */
   useEffect(() => {
     console.log('yo, this is a didUpdate ifect')
@@ -17,14 +26,22 @@ const App = () => {
   }, [])
 
   useEffect(() =>{
-    console.log('che, algo, name cambió')
-  }, [name, age])
+    console.log('che, algo, user cambió')
+  }, [user, password])
 
   return (
     <div>
-      <input value={name} onChange={({ target: { value }}) => setName(value) } />
+      <input type="text" value={user} onChange={({ target: { value }}) => setUser(value) } />
       <br/>
-      <input age={age} onChange={({ target: { age }}) => setAge(age) } />
+      <input type="password" value={password} onChange={({ target: { password }}) => setPassword(password) } />
+      <br />
+      <button onClick={handleLoginClick} >
+        Saing in
+      </button>
+      <button onClick={handleClearButtonClick}>
+        cliar
+      </button>
+      {isLogged && <h2> zazefuli loged</h2>}
     </div>
   )
 }
