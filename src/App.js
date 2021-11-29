@@ -1,47 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react/cjs/react.development";
+
+const jsonData = [
+{ key: "1",  name: "Johan Paul Montoya"},
+{ key: "2",  name: "Alam Brito Delgado"},
+{ key: "3",  name: "Chiquito of the Road"},
+{ key: "4",  name: "Alberto Gomez"},
+{ key: "5",  name: "Worki Jimenez"},
+{ key: "6",  name: "Manolo of the Drum"}]
 
 const App = () => {
-  const [user, setUser] = useState("username");
-  const [password, setPassword] = useState("password");
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const handleLoginClick = () => {
-    setIsLogged(true);
-  }
-
-  const handleClearButtonClick = () => {
-    setIsLogged(false);
-  }
-  /** componentDidUpdate */
   useEffect(() => {
-    console.log('yo, this is a didUpdate ifect')
-  })
-
-  /** ComponentDidMount */
-  useEffect(() => {
-    console.log('broooh, component didmaunt')
-    return () => {
-      console.log('guil ummoun')
-    }
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 4000)
   }, [])
 
-  useEffect(() =>{
-    console.log('che, algo, user cambió')
-  }, [user, password])
+  const renderData =  () => {     
+    return jsonData?.map((value) => (
+      <div key={value.key}>
+        <p>{value.name}</p>
+      </div>
+    ));
+  };
 
   return (
     <div>
-      <input type="text" value={user} onChange={({ target: { value }}) => setUser(value) } />
-      <br/>
-      <input type="password" value={password} onChange={({ target: { password }}) => setPassword(password) } />
-      <br />
-      <button onClick={handleLoginClick} >
-        Saing in
-      </button>
-      <button onClick={handleClearButtonClick}>
-        cliar
-      </button>
-      {isLogged && <h2> zazefuli loged</h2>}
+      { isLoading ? <h2>lodin</h2> :  renderData() }      
     </div>
   )
 }
