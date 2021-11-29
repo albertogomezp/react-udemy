@@ -1,42 +1,31 @@
-import { Component } from "react";
+import { useEffect, useState } from "react";
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      name: "Brr, name does brr"
+const App = () => {
+  const [name, setName] = useState("");
+  const [age, setAge] = useState(0);
+  /** componentDidUpdate */
+  useEffect(() => {
+    console.log('yo, this is a didUpdate ifect')
+  })
+
+  /** ComponentDidMount */
+  useEffect(() => {
+    console.log('broooh, component didmaunt')
+    return () => {
+      console.log('guil ummoun')
     }
-    console.log('konstruktor')
-    console.log('zometaim i do brr, but not much')
-  }
+  }, [])
 
-  componentDidMount() {
-    console.log('did maunt??')
-    console.log('yea, it maunt')
-  }
+  useEffect(() =>{
+    console.log('che, algo, name cambió')
+  }, [name, age])
 
-  componentDidUpdate(prevProps,prevState, snapshot) {
-    console.log('up up')
-  }
-
-  shouldComponentUpdate() {
-      var name = this.state.name;
-      console.log(`haha name goes: ${name}`)
-      return name.includes('brr');
-  }
-
-  getSnapshotBeforeUpdate(prevProps, prevState){
-    console.log(prevProps,prevState)
-    return 0
-  }
-
-  render() {
-      return (
-      <div>
-        da inpu --> 
-        <input value={this.state.name} onChange={({target: {value}}) => this.setState({name: value})} />  
-      </div>
-      );
-  }
+  return (
+    <div>
+      <input value={name} onChange={({ target: { value }}) => setName(value) } />
+      <br/>
+      <input age={age} onChange={({ target: { age }}) => setAge(age) } />
+    </div>
+  )
 }
 export default App;
