@@ -31,8 +31,8 @@ export default function Search() {
 
     return (
         <div className={`search ${isAtTop ? "search--top" : "search--center"}`}> 
-            <SearchBox onSearch={handleSearchClick} onClose={handleCloseClick} />
-            <SearchResults results={results} />
+            <SearchBox isSearching={isAtTop} onSearch={handleSearchClick} onClose={handleCloseClick} />
+            <SearchResults results={results} isSearching={isAtTop} />
         </div>
     );
 }

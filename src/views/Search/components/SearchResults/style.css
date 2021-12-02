@@ -1,12 +1,15 @@
 .result {
     margin-top: 1rem;
     margin-bottom: 1rem;
+    width: 100%;
+    padding: 0rem 2rem 0rem 2rem;
 }
 
 .result-card {
     background-color: #E8E7E7;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    padding: 0.5rem;
+    padding: 1rem;
+    width: 100%;
     border-radius: 1rem;
 }
