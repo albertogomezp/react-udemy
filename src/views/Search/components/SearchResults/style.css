@@ -1,0 +1,12 @@
+.result {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.result-card {
+    background-color: #E8E7E7;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
