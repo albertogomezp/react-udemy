@@ -1,4 +1,4 @@
 import Search from "./views/Search";
-
-const App = () => <Search /> 
+import Routes from "./routes"
+const App = () => <Routes /> 
 export default App;
