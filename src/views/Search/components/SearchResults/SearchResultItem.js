@@ -1,8 +1,8 @@
-export default function SearchResultItem({item}) {
+export default function SearchResultItem({name, email}) {
     return (
         <div className="result-card">
-            <p>{item.name}</p>
-            <p>{item.email}</p>
+            <p>{name}</p>
+            <p>{email}</p>
         </div>
     )
 }
