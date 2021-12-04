@@ -1,19 +1,29 @@
 import { useEffect, useState } from "react";
 import SearchBox from "./components/SearchBox";
+import axios from "axios";
 import "./style.css"
 import SearchResults from "./components/SearchResults";
 
 export default function Search() {
     const [isAtTop, setIstAtTop] = useState(false);
-    const [userData, setUsersData] = useState("");
+    // const [userData, setUsersData] = useState("");
     const [data, setData] = useState([])
     const [results, setResults] = useState(data);
 
     useEffect(() => {
         const getUsers = async () => {
+            /*
             const response = await fetch("https://jsonplaceholder.typicode.com/users")
             const data = await response.json();
-            setData(data)
+            */
+            try {
+                const { data } = await axios.get("https://jsonplaceholder.typicode.com/users")
+                console.log(data)
+                setData(data)    
+            } catch(error) {
+                console.log(error)
+            }
+            
         };
 
         getUsers().catch(null);

@@ -1,4 +1,12 @@
-import Search from "./views/Search";
 import Routes from "./routes"
-const App = () => <Routes /> 
+import PokemonProvider from "./context/pokemons/Provider";
+
+import './App.css'
+function App() {
+    return (
+    <PokemonProvider>
+        <Routes /> 
+    </PokemonProvider>
+    );
+}
 export default App;
